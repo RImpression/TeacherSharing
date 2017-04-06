@@ -5,6 +5,9 @@ import android.os.Bundle;
 
 import com.example.teachersharing.R;
 
+/**
+ * 教案设计
+ */
 public class LessonPlanDesign extends BaseActivity {
 
     @Override

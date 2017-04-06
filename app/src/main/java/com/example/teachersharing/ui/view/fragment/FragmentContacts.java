@@ -1,5 +1,6 @@
 package com.example.teachersharing.ui.view.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
@@ -8,6 +9,8 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.ListView;
 
 import com.example.teachersharing.R;
 import com.example.teachersharing.ui.adapter.MFragmentPagerAdapter;
@@ -18,10 +21,10 @@ import java.util.List;
 /**
  * Created by RImpression on 2016/9/24 0024.
  */
-public class FragmentContacts extends Fragment {
+public class FragmentContacts extends Fragment implements View.OnClickListener {
     private View view;
-    private TabLayout tabLayout;
-    private ViewPager viewPager;
+    private LinearLayout btnAttention;
+    private ListView lvContacts;
 
 
     public static FragmentContacts newInstance(String param1) {
@@ -50,24 +53,21 @@ public class FragmentContacts extends Fragment {
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        setUpViewPager();
+        initView();
     }
 
-    private void setUpViewPager() {
-        viewPager = (ViewPager) getView().findViewById(R.id.viewpager);
-        tabLayout = (TabLayout) getView().findViewById(R.id.tabLayout);
-        List<String> titles = new ArrayList<>();
-        titles.add("关注");
-        titles.add("通讯录");
-        tabLayout.addTab(tabLayout.newTab().setText(titles.get(0)));
-        tabLayout.addTab(tabLayout.newTab().setText(titles.get(1)));
-        List<Fragment> fragments = new ArrayList<>();
-        fragments.add(new FragmentAttention());
-        fragments.add(new FragmentFriend());
+    private void initView() {
+        btnAttention = (LinearLayout) getView().findViewById(R.id.btnAttention);
+        lvContacts = (ListView) getView().findViewById(R.id.lvContacts);
+        btnAttention.setOnClickListener(this);
+        
+    }
 
-        MFragmentPagerAdapter adapter = new MFragmentPagerAdapter(getActivity().getSupportFragmentManager(),fragments,titles);
-        viewPager.setAdapter(adapter);
-        tabLayout.setupWithViewPager(viewPager);
-        tabLayout.setTabsFromPagerAdapter(adapter);
+    @Override
+    public void onClick(View v) {
+        if (v.getId() == R.id.btnAttention){
+            //跳转至关注界面
+            Intent intent = new Intent();
+        }
     }
 }
