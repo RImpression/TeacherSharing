@@ -31,7 +31,8 @@
         <activity android:name=".ui.view.TeachingQuestion" />
         <activity android:name=".ui.view.UserInformation" />
         <activity android:name=".ui.view.MyCoursePlan" />
-        <activity android:name=".ui.view.MyResources"></activity>
+        <activity android:name=".ui.view.MyResources" />
+        <activity android:name=".ui.view.PrivateLetterActivity"></activity>
     </application>
 
 </manifest>

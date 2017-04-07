@@ -50,9 +50,9 @@
             android:gravity="top"/>
     </LinearLayout>
     <Button
-        android:id="@+id/btnSave"
+        android:id="@+id/btnSend"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:text="发布"/>
+        android:text="发送"/>
 </RelativeLayout>

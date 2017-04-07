@@ -17,4 +17,10 @@
         android:layout_height="wrap_content"
         android:text="注册" />
 
+    <Button
+        android:id="@+id/btnQuestion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="教学问题" />
+
 </LinearLayout>

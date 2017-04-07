@@ -60,7 +60,7 @@ public class FragmentContacts extends Fragment implements View.OnClickListener {
         btnAttention = (LinearLayout) getView().findViewById(R.id.btnAttention);
         lvContacts = (ListView) getView().findViewById(R.id.lvContacts);
         btnAttention.setOnClickListener(this);
-        
+
     }
 
     @Override

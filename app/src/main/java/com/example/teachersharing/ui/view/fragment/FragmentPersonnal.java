@@ -13,6 +13,7 @@ import android.widget.Button;
 import com.example.teachersharing.R;
 import com.example.teachersharing.ui.view.LoginActivity;
 import com.example.teachersharing.ui.view.RegisteredActivity;
+import com.example.teachersharing.ui.view.TeachingQuestion;
 
 /**
  * Created by RImpression on 2016/9/24 0024.
@@ -20,7 +21,7 @@ import com.example.teachersharing.ui.view.RegisteredActivity;
 public class FragmentPersonnal extends Fragment implements View.OnClickListener {
 
     private View view;
-    private Button btnLogin,btnRegistered;
+    private Button btnLogin,btnRegistered,btnQuestion;
 
 
     public static FragmentPersonnal newInstance(String param1) {
@@ -56,8 +57,10 @@ public class FragmentPersonnal extends Fragment implements View.OnClickListener 
     private void initViews() {
         btnLogin = (Button) getView().findViewById(R.id.btnLogin);
         btnRegistered = (Button) getView().findViewById(R.id.btnRegistered);
+        btnQuestion = (Button) getView().findViewById(R.id.btnQuestion);
         btnLogin.setOnClickListener(this);
         btnRegistered.setOnClickListener(this);
+        btnQuestion.setOnClickListener(this);
     }
 
     @Override
@@ -71,6 +74,11 @@ public class FragmentPersonnal extends Fragment implements View.OnClickListener 
 
             case R.id.btnRegistered:
                 intent.setClass(getActivity().getApplicationContext(), RegisteredActivity.class);
+                startActivity(intent);
+                break;
+
+            case R.id.btnQuestion:
+                intent.setClass(getActivity().getApplicationContext(), TeachingQuestion.class);
                 startActivity(intent);
                 break;
         }
