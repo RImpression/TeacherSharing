@@ -13,7 +13,6 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 
 import com.example.teachersharing.R;
-import com.example.teachersharing.ui.adapter.MFragmentPagerAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
