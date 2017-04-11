@@ -9,11 +9,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.LinearLayout;
 
 import com.example.teachersharing.R;
+import com.example.teachersharing.ui.view.CourseManagement;
 import com.example.teachersharing.ui.view.LoginActivity;
+import com.example.teachersharing.ui.view.MyResources;
 import com.example.teachersharing.ui.view.RegisteredActivity;
 import com.example.teachersharing.ui.view.TeachingQuestion;
+import com.example.teachersharing.ui.view.UserInformation;
 
 /**
  * Created by RImpression on 2016/9/24 0024.
@@ -21,7 +25,7 @@ import com.example.teachersharing.ui.view.TeachingQuestion;
 public class FragmentPersonnal extends Fragment implements View.OnClickListener {
 
     private View view;
-    private Button btnLogin,btnRegistered,btnQuestion;
+    private LinearLayout lyCourse,lyQuestion,lyUpload,lyDownload,lyMyCourse,lyNote,lyAuthor;
 
 
     public static FragmentPersonnal newInstance(String param1) {
@@ -55,31 +59,50 @@ public class FragmentPersonnal extends Fragment implements View.OnClickListener 
 
 
     private void initViews() {
-        btnLogin = (Button) getView().findViewById(R.id.btnLogin);
-        btnRegistered = (Button) getView().findViewById(R.id.btnRegistered);
-        btnQuestion = (Button) getView().findViewById(R.id.btnQuestion);
-        btnLogin.setOnClickListener(this);
-        btnRegistered.setOnClickListener(this);
-        btnQuestion.setOnClickListener(this);
+        lyAuthor = (LinearLayout) getView().findViewById(R.id.layoutAuthor);
+        lyCourse = (LinearLayout) getView().findViewById(R.id.layoutCourse);
+        lyQuestion = (LinearLayout) getView().findViewById(R.id.layoutQuestion);
+        lyUpload = (LinearLayout) getView().findViewById(R.id.layoutUpload);
+        lyDownload = (LinearLayout) getView().findViewById(R.id.layoutDownload);
+        lyMyCourse = (LinearLayout) getView().findViewById(R.id.layoutMyCourse);
+        lyNote = (LinearLayout) getView().findViewById(R.id.layoutNote);
+        lyAuthor.setOnClickListener(this);
+        lyCourse.setOnClickListener(this);
+        lyQuestion.setOnClickListener(this);
+        lyUpload.setOnClickListener(this);
+        lyDownload.setOnClickListener(this);
+        lyMyCourse.setOnClickListener(this);
+        lyNote.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
         Intent intent = new Intent();
         switch (v.getId()) {
-            case R.id.btnLogin:
-                intent.setClass(getActivity().getApplicationContext(), LoginActivity.class);
+            case R.id.layoutAuthor:
+                intent.setClass(getActivity().getApplicationContext(), UserInformation.class);
                 startActivity(intent);
                 break;
-
-            case R.id.btnRegistered:
-                intent.setClass(getActivity().getApplicationContext(), RegisteredActivity.class);
+            case R.id.layoutCourse:
+                intent.setClass(getActivity().getApplicationContext(), CourseManagement.class);
                 startActivity(intent);
                 break;
-
-            case R.id.btnQuestion:
-                intent.setClass(getActivity().getApplicationContext(), TeachingQuestion.class);
+            case R.id.layoutQuestion:
+                intent.setClass(getActivity().getApplicationContext(),TeachingQuestion.class);
                 startActivity(intent);
+                break;
+            case R.id.layoutUpload:
+
+                break;
+            case R.id.layoutDownload:
+
+                break;
+            case R.id.layoutMyCourse:
+                intent.setClass(getActivity().getApplicationContext(), MyResources.class);
+                startActivity(intent);
+                break;
+            case R.id.layoutNote:
+
                 break;
         }
     }

@@ -14,5 +14,11 @@ public class LessonPlanDesign extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lesson_plan_design);
+        initToolbar("教案设计",true);
+        initViews();
+    }
+
+    private void initViews() {
+
     }
 }
