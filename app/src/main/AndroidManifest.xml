@@ -34,6 +34,7 @@
         <activity android:name=".ui.view.MyCoursePlan" />
         <activity android:name=".ui.view.MyResources" />
         <activity android:name=".ui.view.PrivateLetterActivity"></activity>
+        <activity android:name=".ui.view.NewsWebViewActivity"></activity>
     </application>
 
 </manifest>

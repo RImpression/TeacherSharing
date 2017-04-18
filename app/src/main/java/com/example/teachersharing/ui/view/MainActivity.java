@@ -33,9 +33,9 @@ public class MainActivity extends BaseActivity implements BottomNavigationBar.On
         bottomNavigationBar = (BottomNavigationBar) findViewById(R.id.bottomNavigation);
         bottomNavigationBar
                 .addItem(new BottomNavigationItem(R.drawable.ic_teachingplan,"教案中心").setActiveColor(R.color.colorPrimary))
-                .addItem(new BottomNavigationItem(R.drawable.ic_contacts,"通讯录").setActiveColor(R.color.colorPrimary))
-                .addItem(new BottomNavigationItem(R.drawable.ic_personal,"个人中心").setActiveColor(R.color.colorPrimary))
-                .addItem(new BottomNavigationItem(R.drawable.ic_life,"生活娱乐").setActiveColor(R.color.colorPrimary))
+                .addItem(new BottomNavigationItem(R.drawable.ic_contacts,"教学问题").setActiveColor(R.color.colorPrimary))
+                .addItem(new BottomNavigationItem(R.drawable.ic_personal,"教学管理").setActiveColor(R.color.colorPrimary))
+                .addItem(new BottomNavigationItem(R.drawable.ic_life,"在线教育").setActiveColor(R.color.colorPrimary))
                 .setFirstSelectedPosition(0)
                 .initialise();
         bottomNavigationBar.setTabSelectedListener(this);

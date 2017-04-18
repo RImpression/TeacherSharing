@@ -53,7 +53,7 @@ public class FragmentTeaching extends Fragment implements View.OnClickListener, 
         super.onActivityCreated(savedInstanceState);
         initView();
 
-        listView.setAdapter(new ArrayAdapter<String>(getActivity().getApplicationContext(),android.R.layout.simple_list_item_1,args));
+        listView.setAdapter(new ArrayAdapter<String>(getActivity().getApplicationContext(),R.layout.item_teaching_list,args));
     }
 
     private void initView() {

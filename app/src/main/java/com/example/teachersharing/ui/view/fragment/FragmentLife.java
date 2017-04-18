@@ -1,5 +1,6 @@
 package com.example.teachersharing.ui.view.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.app.Fragment;
@@ -7,14 +8,18 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import com.android.volley.VolleyError;
 import com.example.teachersharing.R;
+import com.example.teachersharing.ui.adapter.NewsAdapter;
 import com.example.teachersharing.ui.entity.NewsEntity;
 import com.example.teachersharing.ui.http.MyRequest;
 import com.example.teachersharing.ui.interfaces.HttpListener;
 import com.example.teachersharing.ui.util.Api;
+import com.example.teachersharing.ui.view.NewsWebViewActivity;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -25,8 +30,10 @@ import java.util.List;
 
 public class FragmentLife extends Fragment {
     private View view;
-    private List<NewsEntity> newsList;
+    private List<NewsEntity> newsList = new ArrayList<>();
     private NewsEntity newsEntity;
+    private NewsAdapter adapter = null;
+    private ListView listView;
 
 
     public static FragmentLife newInstance(String param1) {
@@ -63,6 +70,7 @@ public class FragmentLife extends Fragment {
             @Override
             public void onSuccess(String result) {
                 newsList = parse2Json(result);
+                setListView(newsList);
             }
 
             @Override
@@ -72,19 +80,25 @@ public class FragmentLife extends Fragment {
         });
     }
 
+    private void setListView(List<NewsEntity> data) {
+        adapter = new NewsAdapter(getActivity().getApplicationContext(),data);
+        listView.setAdapter(adapter);
+    }
+
     private List<NewsEntity> parse2Json(String result) {
+        List<NewsEntity> entityList = null;
         try {
-            List<NewsEntity> entityList = new ArrayList<>();
-            NewsEntity entity = new NewsEntity();
+            entityList = new ArrayList<>();
             JSONObject object = new JSONObject(result.substring(result.indexOf("{"), result.lastIndexOf("}") + 1));
             JSONArray entityArray = object.getJSONArray("szbList");
             for (int i=0;i<entityArray.length();i++) {
+                NewsEntity entity = new NewsEntity();
                 JSONObject news = entityArray.getJSONObject(i);
                 entity.setTitle(news.getString("title"));
                 entity.setContnet(news.getString("content"));
                 entity.setDocpuburl(news.getString("docpuburl"));
-                entity.setAuthor(news.getString("author"));
                 entity.setSource(news.getString("source"));
+                entity.setPubtime(news.getString("pubtime"));
                 entity.setWcmnid(news.getInt("wcmnid"));
                 entity.setWcmcid(news.getInt("wcmcid"));
                 entityList.add(entity);
@@ -99,7 +113,17 @@ public class FragmentLife extends Fragment {
 
 
     private void initViews() {
-
-
+        listView = (ListView) getView().findViewById(R.id.newsList);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent();
+                intent.putExtra("content",newsList.get(position).getContnet());
+                intent.putExtra("title",newsList.get(position).getTitle());
+                intent.putExtra("weburl",newsList.get(position).getDocpuburl());
+                intent.setClass(getActivity().getApplicationContext(), NewsWebViewActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }
