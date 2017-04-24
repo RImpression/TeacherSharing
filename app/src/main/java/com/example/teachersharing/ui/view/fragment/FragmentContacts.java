@@ -9,10 +9,14 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 
 import com.example.teachersharing.R;
+import com.example.teachersharing.ui.view.LoginActivity;
+import com.example.teachersharing.ui.view.RegisteredActivity;
+import com.example.teachersharing.ui.view.SearchSourcesActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,6 +28,8 @@ public class FragmentContacts extends Fragment implements View.OnClickListener {
     private View view;
     private LinearLayout btnAttention;
     private ListView lvContacts;
+    private Button btnSearchSource;
+    private Button btnLogin,btnRegisted;
 
 
     public static FragmentContacts newInstance(String param1) {
@@ -57,16 +63,35 @@ public class FragmentContacts extends Fragment implements View.OnClickListener {
 
     private void initView() {
         btnAttention = (LinearLayout) getView().findViewById(R.id.btnAttention);
-        lvContacts = (ListView) getView().findViewById(R.id.lvContacts);
         btnAttention.setOnClickListener(this);
+        btnSearchSource = (Button) getView().findViewById(R.id.btnSearchSource);
+        btnSearchSource.setOnClickListener(this);
+        btnLogin = (Button) getView().findViewById(R.id.btnLogin);
+        btnRegisted = (Button) getView().findViewById(R.id.btnRegistered);
+        btnLogin.setOnClickListener(this);
+        btnRegisted.setOnClickListener(this);
 
     }
 
     @Override
     public void onClick(View v) {
+        Intent intent = new Intent();
         if (v.getId() == R.id.btnAttention){
             //跳转至关注界面
-            Intent intent = new Intent();
+
+        }
+        if (v.getId() == R.id.btnSearchSource) {
+
+            intent.setClass(getActivity().getApplicationContext(), SearchSourcesActivity.class);
+            startActivity(intent);
+        }
+        if (v.getId() == R.id.btnLogin) {
+            intent.setClass(getActivity().getApplicationContext(), LoginActivity.class);
+            startActivity(intent);
+        }
+        if (v.getId() == R.id.btnRegistered) {
+            intent.setClass(getActivity().getApplicationContext(), RegisteredActivity.class);
+            startActivity(intent);
         }
     }
 }

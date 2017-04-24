@@ -23,8 +23,24 @@ public class FragmentTeaching extends Fragment implements View.OnClickListener, 
     private View view;
     private ListView listView;
     private FloatingActionButton floatingActionButton;
-    private static final String[] args = new String[]{"课题1","课题2","课题3","课题4","课题5","课题6","课题7","课题8","课题9","课题10","课题11",
-            "课题12","课题13","课题14","课题15","课题16","课题17"};
+    private static final String[] args = new String[]{
+            "《登岳阳楼》教案教学设计",
+            "《背影》教案教学设计",
+            "《三角函数》教案教学设计",
+            "《测试教案》教案教学设计",
+            "《贝加尔湖畔》教案教学设计",
+            "《古诗三首》教案教学设计",
+            "《写作技巧》教案教学设计",
+            "《沁园春雪》教案教学设计",
+            "《九月九日登高望远》教案教学设计",
+            "《醉翁亭记》教案教学设计",
+            "《春晓》教案教学设计",
+            "《早》教案教学设计",
+            "《梵高的艺术》教案教学设计",
+            "《明月几时有》教案教学设计",
+            "《现代古诗词解析》教案教学设计",
+            "《这是一个教案》教案教学设计",
+    };
 
     public static FragmentTeaching newInstance(String param1) {
         FragmentTeaching fragment = new FragmentTeaching();

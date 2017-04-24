@@ -29,9 +29,20 @@
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="#A09F9A"/>
-    <ListView
-        android:id="@+id/lvContacts"
+    <Button
+        android:id="@+id/btnSearchSource"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="wrap_content"
+        android:text="资源查找"/>
+    <Button
+        android:id="@+id/btnLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="登录"/>
 
+    <Button
+        android:id="@+id/btnRegistered"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="注册"/>
 </LinearLayout>

@@ -70,7 +70,11 @@
         <Button
             android:id="@+id/btnRegistered"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="35dp"
+            android:background="@drawable/button_press"
+            android:layout_marginTop="15dp"
+            android:textColor="@color/write"
+            android:textSize="18sp"
             android:text="注册"/>
 
     </LinearLayout>

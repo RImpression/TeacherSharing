@@ -13,9 +13,13 @@ import android.widget.LinearLayout;
 
 import com.example.teachersharing.R;
 import com.example.teachersharing.ui.view.CourseManagement;
+import com.example.teachersharing.ui.view.CreateNoteActivity;
 import com.example.teachersharing.ui.view.LoginActivity;
 import com.example.teachersharing.ui.view.MyResources;
+import com.example.teachersharing.ui.view.QuestionDetailActivity;
 import com.example.teachersharing.ui.view.RegisteredActivity;
+import com.example.teachersharing.ui.view.SourceDownloadActivity;
+import com.example.teachersharing.ui.view.SourceUploadActivity;
 import com.example.teachersharing.ui.view.TeachingQuestion;
 import com.example.teachersharing.ui.view.UserInformation;
 
@@ -88,21 +92,25 @@ public class FragmentPersonnal extends Fragment implements View.OnClickListener 
                 startActivity(intent);
                 break;
             case R.id.layoutQuestion:
-                intent.setClass(getActivity().getApplicationContext(),TeachingQuestion.class);
+                //问题详情
+                intent.setClass(getActivity().getApplicationContext(),QuestionDetailActivity.class);
                 startActivity(intent);
                 break;
             case R.id.layoutUpload:
-
+                intent.setClass(getActivity().getApplicationContext(), SourceUploadActivity.class);
+                startActivity(intent);
                 break;
             case R.id.layoutDownload:
-
+                intent.setClass(getActivity().getApplicationContext(), SourceDownloadActivity.class);
                 break;
             case R.id.layoutMyCourse:
                 intent.setClass(getActivity().getApplicationContext(), MyResources.class);
                 startActivity(intent);
                 break;
             case R.id.layoutNote:
-
+                //添加笔记
+                intent.setClass(getActivity().getApplicationContext(), CreateNoteActivity.class);
+                startActivity(intent);
                 break;
         }
     }

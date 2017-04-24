@@ -27,7 +27,7 @@ public class MainActivity extends BaseActivity implements BottomNavigationBar.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle("良师+");
+        toolbar.setTitle("教学资源共享平台");
         setSupportActionBar(toolbar);
 
         bottomNavigationBar = (BottomNavigationBar) findViewById(R.id.bottomNavigation);

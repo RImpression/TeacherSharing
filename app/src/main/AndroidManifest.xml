@@ -35,6 +35,11 @@
         <activity android:name=".ui.view.MyResources" />
         <activity android:name=".ui.view.PrivateLetterActivity"></activity>
         <activity android:name=".ui.view.NewsWebViewActivity"></activity>
+        <activity android:name=".ui.view.QuestionDetailActivity"></activity>
+        <activity android:name=".ui.view.CreateNoteActivity"></activity>
+        <activity android:name=".ui.view.SourceUploadActivity"></activity>
+        <activity android:name=".ui.view.SourceDownloadActivity"></activity>
+        <activity android:name=".ui.view.SearchSourcesActivity"></activity>
     </application>
 
 </manifest>
