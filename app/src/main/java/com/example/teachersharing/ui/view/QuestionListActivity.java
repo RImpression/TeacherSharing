@@ -6,13 +6,13 @@ import android.os.Bundle;
 import com.example.teachersharing.R;
 
 /**
- * 我的资源
+ * 问题列表
  */
-public class MyResources extends AppCompatActivity {
+public class QuestionListActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_my_resources);
+        setContentView(R.layout.activity_question_list);
     }
 }

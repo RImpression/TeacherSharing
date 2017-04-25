@@ -4,23 +4,18 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.app.Fragment;
-import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.LinearLayout;
 
 import com.example.teachersharing.R;
-import com.example.teachersharing.ui.view.CourseManagement;
 import com.example.teachersharing.ui.view.CreateNoteActivity;
-import com.example.teachersharing.ui.view.LoginActivity;
-import com.example.teachersharing.ui.view.MyResources;
-import com.example.teachersharing.ui.view.QuestionDetailActivity;
-import com.example.teachersharing.ui.view.RegisteredActivity;
-import com.example.teachersharing.ui.view.SourceDownloadActivity;
+import com.example.teachersharing.ui.view.CreateQuestionActivity;
+import com.example.teachersharing.ui.view.MyNoteActivity;
+import com.example.teachersharing.ui.view.MyResourcesActivity;
+import com.example.teachersharing.ui.view.SearchSourcesActivity;
 import com.example.teachersharing.ui.view.SourceUploadActivity;
-import com.example.teachersharing.ui.view.TeachingQuestion;
 import com.example.teachersharing.ui.view.UserInformation;
 
 /**
@@ -29,7 +24,7 @@ import com.example.teachersharing.ui.view.UserInformation;
 public class FragmentPersonnal extends Fragment implements View.OnClickListener {
 
     private View view;
-    private LinearLayout lyCourse,lyQuestion,lyUpload,lyDownload,lyMyCourse,lyNote,lyAuthor;
+    private LinearLayout lySearch,lyUpload,lySourceList,lyQuestion,lyAddNote,lyNoteList,lyAuthor;
 
 
     public static FragmentPersonnal newInstance(String param1) {
@@ -64,19 +59,18 @@ public class FragmentPersonnal extends Fragment implements View.OnClickListener 
 
     private void initViews() {
         lyAuthor = (LinearLayout) getView().findViewById(R.id.layoutAuthor);
-        lyCourse = (LinearLayout) getView().findViewById(R.id.layoutCourse);
-        lyQuestion = (LinearLayout) getView().findViewById(R.id.layoutQuestion);
         lyUpload = (LinearLayout) getView().findViewById(R.id.layoutUpload);
-        lyDownload = (LinearLayout) getView().findViewById(R.id.layoutDownload);
-        lyMyCourse = (LinearLayout) getView().findViewById(R.id.layoutMyCourse);
-        lyNote = (LinearLayout) getView().findViewById(R.id.layoutNote);
-        lyAuthor.setOnClickListener(this);
-        lyCourse.setOnClickListener(this);
-        lyQuestion.setOnClickListener(this);
+        lySearch = (LinearLayout) getView().findViewById(R.id.layoutSearch);
+        lySourceList = (LinearLayout) getView().findViewById(R.id.layoutSourceList);
+        lyQuestion = (LinearLayout) getView().findViewById(R.id.layoutQuestion);
+        lyAddNote = (LinearLayout) getView().findViewById(R.id.layoutAddNote);
+        lyNoteList = (LinearLayout) getView().findViewById(R.id.layoutNoteList);
         lyUpload.setOnClickListener(this);
-        lyDownload.setOnClickListener(this);
-        lyMyCourse.setOnClickListener(this);
-        lyNote.setOnClickListener(this);
+        lySearch.setOnClickListener(this);
+        lySourceList.setOnClickListener(this);
+        lyQuestion.setOnClickListener(this);
+        lyAddNote.setOnClickListener(this);
+        lyNoteList.setOnClickListener(this);
     }
 
     @Override
@@ -87,31 +81,38 @@ public class FragmentPersonnal extends Fragment implements View.OnClickListener 
                 intent.setClass(getActivity().getApplicationContext(), UserInformation.class);
                 startActivity(intent);
                 break;
-            case R.id.layoutCourse:
-                intent.setClass(getActivity().getApplicationContext(), CourseManagement.class);
-                startActivity(intent);
-                break;
-            case R.id.layoutQuestion:
-                //问题详情
-                intent.setClass(getActivity().getApplicationContext(),QuestionDetailActivity.class);
-                startActivity(intent);
-                break;
+
             case R.id.layoutUpload:
                 intent.setClass(getActivity().getApplicationContext(), SourceUploadActivity.class);
                 startActivity(intent);
                 break;
-            case R.id.layoutDownload:
-                intent.setClass(getActivity().getApplicationContext(), SourceDownloadActivity.class);
-                break;
-            case R.id.layoutMyCourse:
-                intent.setClass(getActivity().getApplicationContext(), MyResources.class);
+
+            case R.id.layoutSearch:
+                intent.setClass(getActivity().getApplicationContext(), SearchSourcesActivity.class);
                 startActivity(intent);
                 break;
-            case R.id.layoutNote:
-                //添加笔记
-                intent.setClass(getActivity().getApplicationContext(), CreateNoteActivity.class);
+
+            case R.id.layoutSourceList:
+                intent.setClass(getActivity().getApplicationContext(), MyResourcesActivity.class);
                 startActivity(intent);
                 break;
+
+            case R.id.layoutQuestion:
+                intent.setClass(getActivity().getApplicationContext(), CreateQuestionActivity.class);
+                startActivity(intent);
+                break;
+
+            case R.id.layoutAddNote:
+                intent.setClass(getActivity().getApplicationContext(),CreateNoteActivity.class);
+                startActivity(intent);
+                break;
+
+            case R.id.layoutNoteList:
+                intent.setClass(getActivity().getApplicationContext(), MyNoteActivity.class);
+                startActivity(intent);
+                break;
+
+
         }
     }
 }

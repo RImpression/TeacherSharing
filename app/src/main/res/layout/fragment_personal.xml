@@ -53,11 +53,21 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
+        android:layout_marginTop="15dp"
         android:background="@color/write"
-        android:layout_marginTop="15dp">
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#F2F2F9"
+            android:padding="5dp"
+            android:text="资源管理"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
+
         <LinearLayout
-            android:id="@+id/layoutCourse"
+            android:id="@+id/layoutSearch"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
@@ -70,51 +80,24 @@
                 android:paddingBottom="10dp"
                 android:paddingLeft="16dp"
                 android:paddingTop="10dp"
-                android:text="课件发布"
+                android:text="资源查找"
                 android:textSize="20sp" />
 
             <ImageView
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginRight="16dp"
-                android:src="@mipmap/icon_right"/>
-        </LinearLayout>
-        <View android:layout_width="match_parent"
-                android:layout_height="1dp"
-            android:layout_marginLeft="16dp"
-            android:background="#F2F2F9"/>
-        <LinearLayout
-            android:id="@+id/layoutQuestion"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <TextView
-                android:layout_width="0dp"
-                android:layout_weight="7"
-                android:layout_height="wrap_content"
-                android:text="教学问题"
-                android:textSize="20sp"
-                android:paddingLeft="16dp"
-                android:paddingTop="10dp"
-                android:paddingBottom="10dp"/>
-            <ImageView
-                android:layout_width="0dp"
                 android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginRight="16dp"
-                android:src="@mipmap/icon_right"/>
+                android:src="@mipmap/icon_right" />
         </LinearLayout>
-    </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:background="@color/write"
-        android:layout_marginTop="20dp">
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="16dp"
+            android:background="#F2F2F9" />
+
         <LinearLayout
             android:id="@+id/layoutUpload"
             android:layout_width="match_parent"
@@ -133,48 +116,20 @@
 
             <ImageView
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginRight="16dp"
-                android:src="@mipmap/icon_right"/>
+                android:layout_weight="1"
+                android:src="@mipmap/icon_right" />
         </LinearLayout>
-        <View android:layout_width="match_parent"
+        <View
+            android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_marginLeft="16dp"
-            android:background="#F2F2F9"/>
-        <LinearLayout
-            android:id="@+id/layoutDownload"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <TextView
-                android:layout_width="0dp"
-                android:layout_weight="7"
-                android:layout_height="wrap_content"
-                android:text="资源下载"
-                android:textSize="20sp"
-                android:paddingLeft="16dp"
-                android:paddingTop="10dp"
-                android:paddingBottom="10dp"/>
-            <ImageView
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginRight="16dp"
-                android:src="@mipmap/icon_right"/>
-        </LinearLayout>
-    </LinearLayout>
+            android:background="#F2F2F9" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:background="@color/write"
-        android:layout_marginTop="30dp">
         <LinearLayout
-            android:id="@+id/layoutMyCourse"
+            android:id="@+id/layoutSourceList"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
@@ -186,7 +141,48 @@
                 android:paddingBottom="10dp"
                 android:paddingLeft="16dp"
                 android:paddingTop="10dp"
-                android:text="我的课件"
+                android:text="我的资源列表"
+                android:textSize="20sp" />
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginRight="16dp"
+                android:layout_weight="1"
+                android:src="@mipmap/icon_right" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/write"
+        android:layout_marginTop="30dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#F2F2F9"
+            android:padding="5dp"
+            android:text="教学管理"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
+        <LinearLayout
+            android:id="@+id/layoutQuestion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="7"
+                android:paddingBottom="10dp"
+                android:paddingLeft="16dp"
+                android:paddingTop="10dp"
+                android:text="问题发布"
                 android:textSize="20sp" />
 
             <ImageView
@@ -202,7 +198,7 @@
             android:layout_marginLeft="16dp"
             android:background="#F2F2F9"/>
         <LinearLayout
-            android:id="@+id/layoutNote"
+            android:id="@+id/layoutAddNote"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
@@ -210,7 +206,29 @@
                 android:layout_width="0dp"
                 android:layout_weight="7"
                 android:layout_height="wrap_content"
-                android:text="笔记"
+                android:text="笔记添加"
+                android:textSize="20sp"
+                android:paddingLeft="16dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"/>
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginRight="16dp"
+                android:src="@mipmap/icon_right"/>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/layoutNoteList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="7"
+                android:layout_height="wrap_content"
+                android:text="我的笔记"
                 android:textSize="20sp"
                 android:paddingLeft="16dp"
                 android:paddingTop="10dp"

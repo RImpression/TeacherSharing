@@ -19,6 +19,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -33,7 +34,11 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.android.volley.VolleyError;
 import com.example.teachersharing.R;
+import com.example.teachersharing.ui.http.MyRequest;
+import com.example.teachersharing.ui.interfaces.HttpListener;
+import com.example.teachersharing.ui.util.Api;
 
 import static android.Manifest.permission.READ_CONTACTS;
 
@@ -47,6 +52,7 @@ public class LoginActivity extends BaseActivity implements OnClickListener {
     private EditText edtAccount,edtPassword;
     private Button btnSignIn;
     private ProgressBar mProgressView;
+    private String[] paramKey,paramValue;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,8 +82,21 @@ public class LoginActivity extends BaseActivity implements OnClickListener {
     }
 
     private void signIn() {
-        String accoutn = edtAccount.getText().toString();
+        String account = edtAccount.getText().toString();
         String password = edtPassword.getText().toString();
+        paramKey = new String[]{"username","password"};
+        paramValue = new String[]{account,password};
+        MyRequest.postRequest(this, Api.LOGIN_URL, paramKey, paramValue, new HttpListener() {
+            @Override
+            public void onSuccess(String result) {
+                Log.i("success",result);
+            }
+
+            @Override
+            public void onError(VolleyError volleyError) {
+                Log.i("error",volleyError.toString());
+            }
+        });
 
     }
 }
