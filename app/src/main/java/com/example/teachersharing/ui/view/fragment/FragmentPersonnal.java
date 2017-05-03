@@ -7,16 +7,21 @@ import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.example.teachersharing.R;
+import com.example.teachersharing.ui.util.PreferencesUtils;
 import com.example.teachersharing.ui.view.CreateNoteActivity;
 import com.example.teachersharing.ui.view.CreateQuestionActivity;
+import com.example.teachersharing.ui.view.LoginActivity;
 import com.example.teachersharing.ui.view.MyNoteActivity;
 import com.example.teachersharing.ui.view.MyResourcesActivity;
 import com.example.teachersharing.ui.view.SearchSourcesActivity;
 import com.example.teachersharing.ui.view.SourceUploadActivity;
 import com.example.teachersharing.ui.view.UserInformation;
+import com.squareup.picasso.Picasso;
 
 /**
  * Created by RImpression on 2016/9/24 0024.
@@ -25,6 +30,9 @@ public class FragmentPersonnal extends Fragment implements View.OnClickListener 
 
     private View view;
     private LinearLayout lySearch,lyUpload,lySourceList,lyQuestion,lyAddNote,lyNoteList,lyAuthor;
+    private String username,imageUrl;
+    private TextView tvUsername,tvNick;
+    private ImageView imgAuthor;
 
 
     public static FragmentPersonnal newInstance(String param1) {
@@ -53,11 +61,16 @@ public class FragmentPersonnal extends Fragment implements View.OnClickListener 
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
+        username = PreferencesUtils.getString(getActivity().getApplicationContext(),"username");
+        imageUrl = PreferencesUtils.getString(getActivity().getApplicationContext(),"imageUrl");
         initViews();
     }
 
 
     private void initViews() {
+        imgAuthor = (ImageView) getView().findViewById(R.id.imgAuthor);
+        tvUsername = (TextView) getView().findViewById(R.id.tvUsername);
+        tvNick = (TextView) getView().findViewById(R.id.tvNick);
         lyAuthor = (LinearLayout) getView().findViewById(R.id.layoutAuthor);
         lyUpload = (LinearLayout) getView().findViewById(R.id.layoutUpload);
         lySearch = (LinearLayout) getView().findViewById(R.id.layoutSearch);
@@ -65,12 +78,18 @@ public class FragmentPersonnal extends Fragment implements View.OnClickListener 
         lyQuestion = (LinearLayout) getView().findViewById(R.id.layoutQuestion);
         lyAddNote = (LinearLayout) getView().findViewById(R.id.layoutAddNote);
         lyNoteList = (LinearLayout) getView().findViewById(R.id.layoutNoteList);
+        lyAuthor.setOnClickListener(this);
         lyUpload.setOnClickListener(this);
         lySearch.setOnClickListener(this);
         lySourceList.setOnClickListener(this);
         lyQuestion.setOnClickListener(this);
         lyAddNote.setOnClickListener(this);
         lyNoteList.setOnClickListener(this);
+
+        tvUsername.setText(username);
+        tvNick.setText(username);
+        Picasso.with(getActivity().getApplicationContext()).load(imageUrl).fit().centerCrop().into(imgAuthor);
+
     }
 
     @Override
@@ -79,6 +98,7 @@ public class FragmentPersonnal extends Fragment implements View.OnClickListener 
         switch (v.getId()) {
             case R.id.layoutAuthor:
                 intent.setClass(getActivity().getApplicationContext(), UserInformation.class);
+                //intent.setClass(getActivity().getApplicationContext(), LoginActivity.class);
                 startActivity(intent);
                 break;
 

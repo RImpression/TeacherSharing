@@ -16,6 +16,7 @@
             android:layout_weight="1"
             android:layout_height="match_parent">
             <ImageView
+                android:id="@+id/imgAuthor"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:padding="5dp"
@@ -28,11 +29,13 @@
             android:gravity="center"
             android:orientation="vertical">
             <TextView
+                android:id="@+id/tvUsername"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Rim"
                 android:textSize="20sp"/>
             <TextView
+                android:id="@+id/tvNick"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="18sp"
@@ -53,7 +56,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="10dp"
         android:background="@color/write"
         android:orientation="vertical">
 
@@ -159,7 +162,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:background="@color/write"
-        android:layout_marginTop="30dp">
+        android:layout_marginTop="20dp">
 
         <TextView
             android:layout_width="match_parent"

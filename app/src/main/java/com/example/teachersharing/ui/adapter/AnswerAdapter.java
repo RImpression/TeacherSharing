@@ -1,44 +1,39 @@
 package com.example.teachersharing.ui.adapter;
 
+
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.teachersharing.R;
-import com.example.teachersharing.ui.entity.QuestionEntity;
-import com.example.teachersharing.ui.util.PreferencesUtils;
+import com.example.teachersharing.ui.entity.AnswerEntity;
 
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * 问题列表适配器
- */
-
-public class QuestionListAdapter extends BaseAdapter{
+public class AnswerAdapter extends BaseAdapter{
     private LayoutInflater mInflater;
-    private List<QuestionEntity> questionList = new ArrayList<>();
+    private List<AnswerEntity> answerList = new ArrayList<>();
     private Context mContext;
 
-    public QuestionListAdapter(Context context,List<QuestionEntity> list) {
+    public AnswerAdapter(Context context,List<AnswerEntity> list) {
         this.mContext = context;
-        this.questionList = list;
+        this.answerList = list;
         this.mInflater = LayoutInflater.from(context);
     }
 
-
     @Override
     public int getCount() {
-        return questionList.size();
+        return answerList.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return questionList.get(position);
+        return answerList.get(position);
     }
 
     @Override
@@ -48,26 +43,23 @@ public class QuestionListAdapter extends BaseAdapter{
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        QuestionEntity entity = questionList.get(position);
+        AnswerEntity entity = answerList.get(position);
         ViewHolder holder;
         if (convertView == null) {
             holder = new ViewHolder();
-            convertView = mInflater.inflate(R.layout.item_question_list,null);
-            holder.tvTitle = (TextView) convertView.findViewById(R.id.tvQuestionTitle);
-            holder.tvAuthor = (TextView) convertView.findViewById(R.id.tvQuestionAuthor);
-            holder.tvDate = (TextView) convertView.findViewById(R.id.tvQuestionDate);
+            convertView = mInflater.inflate(R.layout.item_answer_detail,null);
+            holder.tvDate = (TextView) convertView.findViewById(R.id.tvDate);
+            holder.tvContent = (TextView) convertView.findViewById(R.id.tvContent);
             convertView.setTag(holder);
         } else {
             holder = (ViewHolder) convertView.getTag();
         }
-        holder.tvTitle.setText(entity.getTitle());
-        holder.tvAuthor.setText(entity.getLabel());
         holder.tvDate.setText(entity.getCreateDate());
-
+        holder.tvContent.setText(entity.getContent());
         return convertView;
     }
 
     static class ViewHolder {
-        private TextView tvTitle,tvAuthor,tvDate;
+        private TextView tvDate,tvContent;
     }
 }

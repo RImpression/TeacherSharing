@@ -8,13 +8,22 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="vertical"
         android:padding="16dp">
         <TextView
+            android:id="@+id/questionTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="如何做一个好教师？"
             android:textColor="@color/black"
             android:textSize="20sp"/>
+        <TextView
+            android:id="@+id/questionContent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:paddingTop="5dp"
+            android:text="如题所示"/>
     </LinearLayout>
     <View
         android:layout_width="match_parent"
@@ -23,54 +32,8 @@
         android:layout_marginRight="6dp"
         android:background="#C2C2C2"/>
 
-    <ScrollView
+    <ListView
+        android:id="@+id/listAnswer"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="5dp"
-        android:padding="16dp"
-        android:orientation="vertical">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:orientation="horizontal"
-            android:gravity="center_vertical">
-            <ImageView
-                android:layout_width="45dp"
-                android:layout_height="45dp"
-                android:src="@drawable/photo_normal"/>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:paddingLeft="10dp"
-                android:gravity="center_vertical">
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="人民教师"
-                    android:padding="3dp"
-                    android:textSize="16sp"/>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="于 2017-03-07 回答"
-                    android:textSize="16sp"
-                    android:padding="3dp"/>
-            </LinearLayout>
-
-        </LinearLayout>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:paddingTop="10dp"
-            android:textSize="14sp"
-            android:textColor="@color/black"
-            android:lineSpacingExtra="3dp"
-            android:text="@string/question_text"/>
-    </LinearLayout>
-    </ScrollView>
+        android:layout_height="match_parent"/>
 </LinearLayout>

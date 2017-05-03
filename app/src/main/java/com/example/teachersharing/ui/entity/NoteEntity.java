@@ -1,17 +1,32 @@
 package com.example.teachersharing.ui.entity;
 
-/**
- * 教学问题
- */
 
-public class QuestionEntity {
+public class NoteEntity {
+
     private String id;
     private String userId;
+    private String noteSortId;
+
+    public String getNoteSortId() {
+        return noteSortId;
+    }
+
+    public void setNoteSortId(String noteSortId) {
+        this.noteSortId = noteSortId;
+    }
+
     private String title;
     private String content;
-    private String label;
     private String createDate;
-    private String Praise;
+    private String click;
+
+    public Boolean getPublicity() {
+        return publicity;
+    }
+
+    public void setPublicity(Boolean publicity) {
+        this.publicity = publicity;
+    }
 
     public String getId() {
         return id;
@@ -45,14 +60,6 @@ public class QuestionEntity {
         this.content = content;
     }
 
-    public String getLabel() {
-        return label;
-    }
-
-    public void setLabel(String label) {
-        this.label = label;
-    }
-
     public String getCreateDate() {
         return createDate;
     }
@@ -61,11 +68,22 @@ public class QuestionEntity {
         this.createDate = createDate;
     }
 
-    public String getPraise() {
-        return Praise;
+    public String getClick() {
+        return click;
     }
 
-    public void setPraise(String praise) {
-        Praise = praise;
+    public void setClick(String click) {
+        this.click = click;
     }
+
+    public Boolean getUp() {
+        return up;
+    }
+
+    public void setUp(Boolean up) {
+        this.up = up;
+    }
+
+    private Boolean publicity;
+    private Boolean up;
 }

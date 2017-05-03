@@ -40,6 +40,8 @@
         <activity android:name=".ui.view.SourceUploadActivity"></activity>
         <activity android:name=".ui.view.SourceDownloadActivity"></activity>
         <activity android:name=".ui.view.SearchSourcesActivity"></activity>
+        <activity android:name=".ui.view.CreateQuestionActivity"></activity>
+        <activity android:name=".ui.view.MyNoteActivity"></activity>
     </application>
 
 </manifest>

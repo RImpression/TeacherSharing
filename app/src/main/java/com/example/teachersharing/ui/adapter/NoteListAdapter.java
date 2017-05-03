@@ -9,36 +9,36 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.example.teachersharing.R;
-import com.example.teachersharing.ui.entity.QuestionEntity;
+import com.example.teachersharing.ui.entity.NoteEntity;
 import com.example.teachersharing.ui.util.PreferencesUtils;
+import com.example.teachersharing.ui.view.BaseActivity;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 问题列表适配器
+ * 笔记列表适配器
  */
-
-public class QuestionListAdapter extends BaseAdapter{
+public class NoteListAdapter extends BaseAdapter{
     private LayoutInflater mInflater;
-    private List<QuestionEntity> questionList = new ArrayList<>();
+    private List<NoteEntity> noteList = new ArrayList<>();
     private Context mContext;
 
-    public QuestionListAdapter(Context context,List<QuestionEntity> list) {
+    public NoteListAdapter(Context context,List<NoteEntity> list) {
         this.mContext = context;
-        this.questionList = list;
+        this.noteList = list;
         this.mInflater = LayoutInflater.from(context);
     }
 
 
     @Override
     public int getCount() {
-        return questionList.size();
+        return noteList.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return questionList.get(position);
+        return noteList.get(position);
     }
 
     @Override
@@ -48,7 +48,7 @@ public class QuestionListAdapter extends BaseAdapter{
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        QuestionEntity entity = questionList.get(position);
+        NoteEntity entity = noteList.get(position);
         ViewHolder holder;
         if (convertView == null) {
             holder = new ViewHolder();
@@ -60,8 +60,9 @@ public class QuestionListAdapter extends BaseAdapter{
         } else {
             holder = (ViewHolder) convertView.getTag();
         }
+        Log.i("note",entity.getTitle());
         holder.tvTitle.setText(entity.getTitle());
-        holder.tvAuthor.setText(entity.getLabel());
+        holder.tvAuthor.setText(PreferencesUtils.getString(mContext,"username"));
         holder.tvDate.setText(entity.getCreateDate());
 
         return convertView;
